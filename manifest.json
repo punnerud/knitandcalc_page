@@ -1,0 +1,21 @@
+{
+    "name": "Screenshot Deleter",
+    "short_name": "Screenshot Deleter",
+    "description": "Clean up your phone by easily finding and deleting unwanted screenshots",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2c3e50",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+} 
