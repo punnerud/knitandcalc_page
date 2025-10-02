@@ -101,12 +101,142 @@
         .description h2 {
             margin-top: 0;
         }
+        .bug-notice {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .calculator-card {
+            max-width: 680px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 12px;
+            background: #fbf7f5;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .lang-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid #c9b0a5;
+            background: #fff;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .lang-btn.active {
+            background: #b86f5f;
+            color: white;
+            border-color: #b86f5f;
+        }
+        .calculator-card label {
+            display: block;
+            margin: 10px 0 6px;
+            font-weight: 600;
+        }
+        .calculator-card input[type="number"] {
+            width: 140px;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #d7cfc9;
+        }
+        .mode {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        .mode button {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #c9b0a5;
+            background: #fff;
+            cursor: pointer;
+        }
+        .mode button.active {
+            background: #b86f5f;
+            color: white;
+            border-color: #b86f5f;
+        }
+        button.calc {
+            margin-top: 14px;
+            padding: 12px 18px;
+            background: #b86f5f;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 18px;
+            background: white;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #efe6e2;
+        }
+        .line {
+            margin: 8px 0;
+        }
+        .final {
+            margin-top: 14px;
+            padding: 10px;
+            background: #f4e9e6;
+            border-radius: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .error {
+            color: #9b2b2b;
+            font-weight: 700;
+        }
+        small {
+            color: #6b6b6b;
+        }
     </style>
 </head>
 <body>
     <div class="hero">
         <h1>Knit&Calc</h1>
         <p class="tagline">Your complete knitting companion! Organize yarn stash, projects and patterns. Includes smart calculators for yarn and stitches. Perfect for knitters! 🧶</p>
+    </div>
+
+    <div class="bug-notice">
+        There is a bug in the Knit Calculator in the app, an update is on its way. You can use this version while waiting.
+    </div>
+
+    <div class="calculator-card">
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="no">Norsk</button>
+        </div>
+
+        <h2 id="calc-title">Increase / Decrease Calculator</h2>
+
+        <div class="mode" role="tablist">
+            <button id="mode-decrease" class="active">Decrease</button>
+            <button id="mode-increase">Increase</button>
+        </div>
+
+        <label id="label-start" for="start">Number of stitches on needle</label>
+        <input id="start" type="number" min="0" value="166">
+
+        <label id="label-count" for="count">Number of decreases / increases</label>
+        <input id="count" type="number" min="0" value="52">
+
+        <div>
+            <button class="calc" id="btn-calculate">Calculate</button>
+        </div>
+
+        <div class="output" id="calc-output" aria-live="polite">
+            <div class="line small">Result will be shown here.</div>
+        </div>
     </div>
 
     <div class="description">
@@ -185,5 +315,7 @@
         <p>© 2025 Knit&Calc. All rights reserved.</p>
         <p>Developed with ❤️ for the knitting community</p>
     </div>
+
+    <script src="calculator.js"></script>
 </body>
 </html>
